@@ -57,7 +57,7 @@ class ViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler {
             // Do any additional setup after loading the view, typically from a nib.
             //初始化播放器
             //_ = Bundle.main
-            let path = Bundle.main.path(forResource: "12345", ofType: "mp3")
+            let path = Bundle.main.path(forResource: "silence", ofType: "mp3")
             guard path != nil else { return }
             let asset = AVAsset(url: URL(fileURLWithPath: path!))
             let item = AVPlayerItem(asset: asset)

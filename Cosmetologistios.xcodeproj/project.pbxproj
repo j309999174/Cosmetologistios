@@ -15,6 +15,7 @@
 		050D6B57200DA9D800BF28EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 050D6B55200DA9D800BF28EB /* LaunchScreen.storyboard */; };
 		050D6B5F200DAA3300BF28EB /* Messagenote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050D6B5E200DAA3300BF28EB /* Messagenote.swift */; };
 		050D6B61200DAABD00BF28EB /* 12345.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 050D6B60200DAABD00BF28EB /* 12345.mp3 */; };
+		0575FDF4206A98BC00F8FF1E /* silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0575FDF3206A98BC00F8FF1E /* silence.mp3 */; };
 		05AC2AD0200C9267004AC249 /* cosmetologistlogo180.png in Resources */ = {isa = PBXBuildFile; fileRef = 05AC2ACF200C9266004AC249 /* cosmetologistlogo180.png */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		050D6B58200DA9D800BF28EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		050D6B5E200DAA3300BF28EB /* Messagenote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messagenote.swift; sourceTree = "<group>"; };
 		050D6B60200DAABD00BF28EB /* 12345.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 12345.mp3; sourceTree = "<group>"; };
+		0575FDF3206A98BC00F8FF1E /* silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = silence.mp3; sourceTree = "<group>"; };
 		05AC2ACF200C9266004AC249 /* cosmetologistlogo180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cosmetologistlogo180.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +64,7 @@
 		050D6B48200DA9D800BF28EB /* Cosmetologistios */ = {
 			isa = PBXGroup;
 			children = (
+				0575FDF3206A98BC00F8FF1E /* silence.mp3 */,
 				05AC2ACF200C9266004AC249 /* cosmetologistlogo180.png */,
 				050D6B60200DAABD00BF28EB /* 12345.mp3 */,
 				050D6B49200DA9D800BF28EB /* AppDelegate.swift */,
@@ -140,6 +143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0575FDF4206A98BC00F8FF1E /* silence.mp3 in Resources */,
 				050D6B57200DA9D800BF28EB /* LaunchScreen.storyboard in Resources */,
 				050D6B54200DA9D800BF28EB /* Assets.xcassets in Resources */,
 				050D6B61200DAABD00BF28EB /* 12345.mp3 in Resources */,

@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Do any additional setup after loading the view, typically from a nib.
             //初始化播放器
             //_ = Bundle.main
-            let path = Bundle.main.path(forResource: "12345", ofType: "mp3")
+            let path = Bundle.main.path(forResource: "silence", ofType: "mp3")
             guard path != nil else { return }
             let asset = AVAsset(url: URL(fileURLWithPath: path!))
             let item = AVPlayerItem(asset: asset)
@@ -61,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.player!.play()
             
             while(true){
-                sleep(10)
+                sleep(8)
                 self.player!.seek(to: CMTimeMake(1, 1))
                 
                 //获取数据  顾客的消息推送,
