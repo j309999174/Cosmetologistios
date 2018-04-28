@@ -30,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("用户不允许消息通知。")
                 }
         }
+        //向APNs请求token
+        UIApplication.shared.registerForRemoteNotifications()
+        
         // 注册后台播放
         let session = AVAudioSession.sharedInstance()
         do {
@@ -66,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 //获取数据  顾客的消息推送,
                 if ((UserDefaults.standard.string(forKey: "cosid")) != nil){
-                    let urlmessage:String!="http://47.96.173.116/cosmetologistajax/unreadjsoncosmetologist/\(String(describing: UserDefaults.standard.string(forKey: "cosid")!))"
+                    let urlmessage:String!="https://www.oushelun.cn/cosmetologistajax/unreadjsoncosmetologist/\(String(describing: UserDefaults.standard.string(forKey: "cosid")!))"
                     print(urlmessage)
                     let messagenote=Messagenote()
                     messagenote.httpGet(request: URLRequest(url: URL(string: urlmessage)!))
@@ -77,6 +80,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
         
     }
+    
+    //token请求回调
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        //打印出获取到的token字符串
+        UserDefaults.standard.set(deviceToken.hexString, forKey: "deviceToken")
+        print("Get Push token: \(deviceToken.hexString)")
+    }
+    
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -149,4 +161,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 }
-
+//对Data类型进行扩展
+extension Data {
+    //将Data转换为String
+    var hexString: String {
+        return withUnsafeBytes {(bytes: UnsafePointer<UInt8>) -> String in
+            let buffer = UnsafeBufferPointer(start: bytes, count: count)
+            return buffer.map {String(format: "%02hhx", $0)}.reduce("", { $0 + $1 })
+        }
+    }
+}

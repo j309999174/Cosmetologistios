@@ -18,7 +18,7 @@ class ViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler {
     
     var webView: WKWebView!
     var myURL: URL!
-    var passresut: String!="http://47.96.173.116/cosmetologist/customerlist/123"
+    var passresut: String!="https://www.oushelun.cn/cosmetologist/customerlist/123"
     //打开音乐，播放音乐，为了保持后台
     let queue = DispatchQueue(label: "创建并行队列", attributes: .concurrent)
     override func loadView() {
@@ -76,7 +76,7 @@ class ViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler {
                 
                 //获取数据  顾客的消息推送,
                 if ((UserDefaults.standard.string(forKey: "cosid")) != nil){
-                    let urlmessage:String!="http://47.96.173.116/cosmetologistajax/unreadjsoncosmetologist/\(String(describing: UserDefaults.standard.string(forKey: "cosid")!))"
+                    let urlmessage:String!="https://www.oushelun.cn/cosmetologistajax/unreadjsoncosmetologist/\(String(describing: UserDefaults.standard.string(forKey: "cosid")!))"
                     print(urlmessage)
                     let messagenote=Messagenote()
                     messagenote.httpGet(request: URLRequest(url: URL(string: urlmessage)!))
@@ -93,12 +93,33 @@ class ViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler {
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
-        //js调用储存用户ID
+        //js调用储存美容师ID
         if(message.name == "ioscosidsave"){
             print("美容师ID\(message.body)")
             
             UserDefaults.standard.set(message.body, forKey: "cosid")
             print("储存的美容师id\(String(describing: UserDefaults.standard.string(forKey: "cosid")!))")
+            
+            //储存deviceToken
+            let urlmessage:String!="https://www.oushelun.cn/decorateajax/cosmetologisttoken/\(message.body)/\(UserDefaults.standard.string(forKey: "deviceToken")!)"
+            let toSearchword = CFURLCreateStringByAddingPercentEscapes(nil, urlmessage! as CFString, nil, "!*'();@&=+$,?%#[]" as CFString, CFStringBuiltInEncodings.UTF8.rawValue)
+            print(toSearchword!)
+            let request = URLRequest(url: URL(string: toSearchword! as String)!)
+            let configuration = URLSessionConfiguration.default
+            
+            let session = URLSession(configuration: configuration,
+                                     delegate: self as? URLSessionDelegate, delegateQueue:OperationQueue.main)
+            
+            let dataTask = session.dataTask(with: request,
+                                            completionHandler: {(data, response, error) -> Void in
+                                                if error != nil{}else{
+                                                    print("数据")
+                                                    print(data as Any)
+                                                }})
+            //使用resume方法启动任务
+            dataTask.resume()
+            
+            
         }
     }
 }

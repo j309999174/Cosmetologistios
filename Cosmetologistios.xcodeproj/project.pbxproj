@@ -32,6 +32,7 @@
 		050D6B60200DAABD00BF28EB /* 12345.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 12345.mp3; sourceTree = "<group>"; };
 		0575FDF3206A98BC00F8FF1E /* silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = silence.mp3; sourceTree = "<group>"; };
 		05AC2ACF200C9266004AC249 /* cosmetologistlogo180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cosmetologistlogo180.png; sourceTree = "<group>"; };
+		05BE8C852092038300CC0E45 /* Cosmetologistios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cosmetologistios.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 		050D6B48200DA9D800BF28EB /* Cosmetologistios */ = {
 			isa = PBXGroup;
 			children = (
+				05BE8C852092038300CC0E45 /* Cosmetologistios.entitlements */,
 				0575FDF3206A98BC00F8FF1E /* silence.mp3 */,
 				05AC2ACF200C9266004AC249 /* cosmetologistlogo180.png */,
 				050D6B60200DAABD00BF28EB /* 12345.mp3 */,
@@ -114,6 +116,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -299,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cosmetologistios/Cosmetologistios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEPLOYMENT_POSTPROCESSING = NO;
@@ -309,7 +315,7 @@
 				INFOPLIST_FILE = Cosmetologistios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = jd.Cosmetologistios;
+				PRODUCT_BUNDLE_IDENTIFIER = oushelun.Cosmetologistios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -320,6 +326,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cosmetologistios/Cosmetologistios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEPLOYMENT_POSTPROCESSING = NO;
@@ -328,7 +335,7 @@
 				INFOPLIST_FILE = Cosmetologistios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = jd.Cosmetologistios;
+				PRODUCT_BUNDLE_IDENTIFIER = oushelun.Cosmetologistios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
