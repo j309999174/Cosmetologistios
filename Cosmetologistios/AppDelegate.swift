@@ -17,11 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     //多线程
     let queue = DispatchQueue(label: "创建并行队列", attributes: .concurrent)
-    var player:AVPlayer?
+    //var player:AVPlayer?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        //徽章为0
+        application.applicationIconBadgeNumber = 0
         //请求通知权限
         UNUserNotificationCenter.current()
             .requestAuthorization(options: [.alert, .sound, .badge]) {
@@ -34,13 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.registerForRemoteNotifications()
         
         // 注册后台播放
-        let session = AVAudioSession.sharedInstance()
-        do {
-            try session.setActive(true)
-            try session.setCategory(AVAudioSessionCategoryPlayback)
-        } catch {
-            print(error)
-        }
+//        let session = AVAudioSession.sharedInstance()
+//        do {
+//            try session.setActive(true)
+//            try session.setCategory(AVAudioSessionCategoryPlayback)
+//        } catch {
+//            print(error)
+//        }
         
         queue.async {
             print("1 秒后输出")
@@ -50,22 +51,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Do any additional setup after loading the view, typically from a nib.
             //初始化播放器
             //_ = Bundle.main
-            let path = Bundle.main.path(forResource: "silence", ofType: "mp3")
-            guard path != nil else { return }
-            let asset = AVAsset(url: URL(fileURLWithPath: path!))
-            let item = AVPlayerItem(asset: asset)
-            self.player = AVPlayer(playerItem: item)
+//            let path = Bundle.main.path(forResource: "silence", ofType: "mp3")
+//            guard path != nil else { return }
+//            let asset = AVAsset(url: URL(fileURLWithPath: path!))
+//            let item = AVPlayerItem(asset: asset)
+//            self.player = AVPlayer(playerItem: item)
             //playerLayer = AVPlayerLayer(player: player)
             //playerContainer.layer.addSublayer(playerLayer)
             
             //let url = URL(string: "http://mxd.766.com/sdo/music/data/3/m10.mp3")
             //playerItem = AVPlayerItem(url: url!)
             //player = AVPlayer(playerItem: playerItem!)
-            self.player!.play()
+            //self.player!.play()
             
             while(true){
                 sleep(8)
-                self.player!.seek(to: CMTimeMake(1, 1))
+                //self.player!.seek(to: CMTimeMake(1, 1))
                 
                 //获取数据  顾客的消息推送,
                 if ((UserDefaults.standard.string(forKey: "cosid")) != nil){
@@ -102,7 +103,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        player?.play()
+        //徽章为0
+        application.applicationIconBadgeNumber = 0
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
