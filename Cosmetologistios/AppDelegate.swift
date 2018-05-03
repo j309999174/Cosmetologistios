@@ -43,8 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            print(error)
 //        }
         
-        queue.async {
-            print("1 秒后输出")
+//        queue.async {
+//            print("1 秒后输出")
             //播放器相关
             //var playerItem:AVPlayerItem?
             //var player:AVPlayer?
@@ -63,21 +63,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //playerItem = AVPlayerItem(url: url!)
             //player = AVPlayer(playerItem: playerItem!)
             //self.player!.play()
-            
-            while(true){
-                sleep(8)
-                //self.player!.seek(to: CMTimeMake(1, 1))
-                
-                //获取数据  顾客的消息推送,
-                if ((UserDefaults.standard.string(forKey: "cosid")) != nil){
-                    let urlmessage:String!="https://www.oushelun.cn/cosmetologistajax/unreadjsoncosmetologist/\(String(describing: UserDefaults.standard.string(forKey: "cosid")!))"
-                    print(urlmessage)
-                    let messagenote=Messagenote()
-                    messagenote.httpGet(request: URLRequest(url: URL(string: urlmessage)!))
-                    
-                }
-            }
-        }
+//
+//            while(true){
+//                sleep(8)
+//                //self.player!.seek(to: CMTimeMake(1, 1))
+//
+//                //获取数据  顾客的消息推送,
+//                if ((UserDefaults.standard.string(forKey: "cosid")) != nil){
+//                    let urlmessage:String!="https://www.oushelun.cn/cosmetologistajax/unreadjsoncosmetologist/\(String(describing: UserDefaults.standard.string(forKey: "cosid")!))"
+//                    print(urlmessage)
+//                    let messagenote=Messagenote()
+//                    messagenote.httpGet(request: URLRequest(url: URL(string: urlmessage)!))
+//
+//                }
+//            }
+//        }
         return true
         
     }
