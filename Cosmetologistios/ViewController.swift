@@ -101,6 +101,7 @@ class ViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler {
             print("储存的美容师id\(String(describing: UserDefaults.standard.string(forKey: "cosid")!))")
             
             //储存deviceToken
+            if UserDefaults.standard.string(forKey: "deviceToken") != nil {
             let urlmessage:String!="https://www.oushelun.cn/decorateajax/cosmetologisttoken/\(message.body)/\(UserDefaults.standard.string(forKey: "deviceToken")!)"
             let toSearchword = CFURLCreateStringByAddingPercentEscapes(nil, urlmessage! as CFString, nil, "!*'();@&=+$,?%#[]" as CFString, CFStringBuiltInEncodings.UTF8.rawValue)
             print(toSearchword!)
@@ -118,7 +119,7 @@ class ViewController: UIViewController, WKUIDelegate, WKScriptMessageHandler {
                                                 }})
             //使用resume方法启动任务
             dataTask.resume()
-            
+            }
             
         }
     }
